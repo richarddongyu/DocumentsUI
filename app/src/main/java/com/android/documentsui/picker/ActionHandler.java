@@ -35,6 +35,7 @@ import android.provider.DocumentsContract;
 import android.provider.Settings;
 import android.util.Log;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -66,8 +67,6 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.concurrent.Executor;
 import java.util.regex.Pattern;
-
-import javax.annotation.Nullable;
 
 /**
  * Provides {@link PickActivity} action specializations to fragments.

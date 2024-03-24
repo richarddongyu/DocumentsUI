@@ -122,7 +122,7 @@ public class MessageBuilder {
         }
         if (uris != null) {
             for (Uri uri : uris) {
-                list.append("&#8226; " + BidiFormatter.getInstance().unicodeWrap(uri.toSafeString()) +
+                list.append("&#8226; " + BidiFormatter.getInstance().unicodeWrap(uri.toString()) + //toSafeString()) +
                         "<br>");
             }
         }

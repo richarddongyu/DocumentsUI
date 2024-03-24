@@ -31,7 +31,7 @@ import androidx.annotation.VisibleForTesting;
 import com.android.documentsui.R;
 import com.android.documentsui.base.State;
 import com.android.documentsui.base.UserId;
-import com.android.modules.utils.build.SdkLevel;
+//import com.android.modules.utils.build.SdkLevel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,7 +109,8 @@ class UserItemsCombiner {
     }
 
     private String getEnterpriseString(String updatableStringId, int defaultStringId) {
-        if (SdkLevel.isAtLeastT()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+//        if (SdkLevel.isAtLeastT()) {
             return getUpdatableEnterpriseString(updatableStringId, defaultStringId);
         } else {
             return mResources.getString(defaultStringId);

@@ -19,6 +19,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.text.Selection;
 import android.text.Spannable;
@@ -98,10 +99,11 @@ public class KeyValueRow extends LinearLayout {
     public void setOnClickListener(OnClickListener callback) {
         TextView clickable = ((TextView) findViewById(R.id.table_row_value));
         mDefaultTextColor = clickable.getTextColors();
-        TypedArray ta = getContext().obtainStyledAttributes(R.styleable.TextAppearance);
-        int linkColor = ta.getColor(R.styleable.TextAppearance_android_textColorLink,
-                mDefaultTextColor.getDefaultColor());
-        ta.recycle();
+//        TypedArray ta = getContext().obtainStyledAttributes(R.styleable.TextAppearance);
+//        int linkColor = ta.getColor(R.styleable.TextAppearance_android_textColorLink,
+//                mDefaultTextColor.getDefaultColor());
+        int linkColor = Color.RED;
+//        ta.recycle();
         clickable.setTextColor(linkColor);
         clickable.setPaintFlags(clickable.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         clickable.setOnClickListener(callback);

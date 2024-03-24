@@ -30,6 +30,7 @@ import android.provider.DocumentsContract.Document;
 import android.provider.DocumentsProvider;
 import android.util.Log;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
 import com.android.documentsui.DocumentsApplication;
@@ -45,8 +46,6 @@ import java.net.ProtocolException;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Set;
-
-import javax.annotation.Nullable;
 
 /**
  * Representation of a {@link Document}.
@@ -447,7 +446,7 @@ public class DocumentInfo implements Durable, Parcelable {
                 mimeTypes.add(type);
             } else {
                 if (DEBUG) {
-                    Log.d(TAG, "resolver.getType(uri) return null, url:" + uri.toSafeString());
+                    Log.d(TAG, "resolver.getType(uri) return null, url:" + uri.toString());//toSafeString());
                 }
             }
             final String[] streamTypes = resolver.getStreamTypes(uri, "*/*");

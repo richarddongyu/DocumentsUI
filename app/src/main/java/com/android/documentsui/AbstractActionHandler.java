@@ -37,6 +37,7 @@ import android.util.Log;
 import android.util.Pair;
 import android.view.DragEvent;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.fragment.app.FragmentActivity;
 import androidx.loader.app.LoaderManager.LoaderCallbacks;
@@ -79,7 +80,6 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Semaphore;
 import java.util.function.Consumer;
 
-import javax.annotation.Nullable;
 
 /**
  * Provides support for specializing the actions (openDocument etc.) to the host activity.
@@ -501,14 +501,14 @@ public abstract class AbstractActionHandler<T extends FragmentActivity & CommonA
         if (isManagedDownload(doc)) {
             // First try managing the document; we expect manager to filter
             // based on authority, so we don't grant.
-            Intent manage = new Intent(DocumentsContract.ACTION_MANAGE_DOCUMENT);
-            manage.setData(doc.getDocumentUri());
-            try {
-                doc.userId.startActivityAsUser(mActivity, manage);
-                return true;
-            } catch (ActivityNotFoundException ex) {
-                // Fall back to regular handling.
-            }
+//            Intent manage = new Intent(DocumentsContract.ACTION_MANAGE_DOCUMENT);
+//            manage.setData(doc.getDocumentUri());
+//            try {
+//                doc.userId.startActivityAsUser(mActivity, manage);
+//                return true;
+//            } catch (ActivityNotFoundException ex) {
+//                // Fall back to regular handling.
+//            }
         }
 
         return false;
@@ -920,9 +920,9 @@ public abstract class AbstractActionHandler<T extends FragmentActivity & CommonA
                         ? mSearchMgr.buildQueryArgs()
                         : null;
 
-                if (mInjector.config.managedModeEnabled(mState.stack)) {
-                    contentsUri = DocumentsContract.setManageMode(contentsUri);
-                }
+//                if (mInjector.config.managedModeEnabled(mState.stack)) {
+//                    contentsUri = DocumentsContract.setManageMode(contentsUri);
+//                }
 
                 if (DEBUG) {
                     Log.d(TAG,

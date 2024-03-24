@@ -19,9 +19,9 @@ package com.android.documentsui.base;
 import static com.android.documentsui.base.SharedMinimal.TAG;
 
 import android.app.Activity;
-import android.app.compat.CompatChanges;
-import android.compat.annotation.ChangeId;
-import android.compat.annotation.EnabledAfter;
+//import android.app.compat.CompatChanges;
+//import android.compat.annotation.ChangeId;
+//import android.compat.annotation.EnabledAfter;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -42,6 +42,7 @@ import android.view.View;
 import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.PluralsRes;
 import androidx.appcompat.app.AlertDialog;
 
@@ -55,8 +56,6 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.annotation.Nullable;
 
 /** @hide */
 public final class Shared {
@@ -149,8 +148,8 @@ public final class Shared {
      * This flag is turned on by default for all apps targeting >
      * {@link android.os.Build.VERSION_CODES#Q}.
      */
-    @ChangeId
-    @EnabledAfter(targetSdkVersion = android.os.Build.VERSION_CODES.Q)
+//    @ChangeId
+//    @EnabledAfter(targetSdkVersion = android.os.Build.VERSION_CODES.Q)
     private static final long RESTRICT_STORAGE_ACCESS_FRAMEWORK = 141600225L;
 
     static {
@@ -180,8 +179,9 @@ public final class Shared {
         }
 
         final String packageName = getCallingPackageName(activity);
-        final boolean ret = CompatChanges.isChangeEnabled(RESTRICT_STORAGE_ACCESS_FRAMEWORK,
-                packageName, Process.myUserHandle());
+//        final boolean ret = CompatChanges.isChangeEnabled(RESTRICT_STORAGE_ACCESS_FRAMEWORK,
+//                packageName, Process.myUserHandle());
+        final boolean ret = true;
 
         Log.d(TAG,
                 "shouldRestrictStorageAccessFramework = " + ret + ", packageName = " + packageName);

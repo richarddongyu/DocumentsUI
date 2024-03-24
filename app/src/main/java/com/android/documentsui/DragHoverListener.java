@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.View.OnDragListener;
 import android.widget.AbsListView;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
 import com.android.documentsui.ItemDragListener.DragHost;
@@ -32,8 +33,6 @@ import java.util.function.BooleanSupplier;
 import java.util.function.IntConsumer;
 import java.util.function.IntSupplier;
 import java.util.function.Predicate;
-
-import javax.annotation.Nullable;
 
 /**
  * This class acts as a middle-man handler for potential auto-scrolling before passing the dragEvent

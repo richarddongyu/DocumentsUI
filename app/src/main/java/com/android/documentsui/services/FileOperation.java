@@ -33,6 +33,7 @@ import android.os.Messenger;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
 import com.android.documentsui.base.DocumentStack;
@@ -42,8 +43,6 @@ import com.android.documentsui.services.FileOperationService.OpType;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.annotation.Nullable;
 
 /**
  * FileOperation describes a file operation, such as move/copy/delete etc. File operation currently

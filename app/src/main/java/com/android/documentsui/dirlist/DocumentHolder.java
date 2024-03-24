@@ -32,6 +32,7 @@ import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
 import android.widget.ImageView;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,11 +40,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.documentsui.R;
 import com.android.documentsui.base.Shared;
 import com.android.documentsui.base.State;
-import com.android.modules.utils.build.SdkLevel;
+//import com.android.modules.utils.build.SdkLevel;
 
 import java.util.function.Function;
-
-import javax.annotation.Nullable;
 
 /**
  * ViewHolder of a document item within a RecyclerView.
@@ -180,7 +179,8 @@ public abstract class DocumentHolder
     }
 
     protected String getPreviewIconContentDescription(boolean isWorkProfile, String fileName) {
-        if (SdkLevel.isAtLeastT()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+//        if (SdkLevel.isAtLeastT()) {
             return getUpdatablePreviewIconContentDescription(isWorkProfile, fileName);
         } else {
             return itemView.getResources().getString(

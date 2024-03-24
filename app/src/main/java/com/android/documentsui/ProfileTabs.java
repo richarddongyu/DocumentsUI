@@ -31,7 +31,7 @@ import androidx.annotation.RequiresApi;
 import com.android.documentsui.base.RootInfo;
 import com.android.documentsui.base.State;
 import com.android.documentsui.base.UserId;
-import com.android.modules.utils.build.SdkLevel;
+//import com.android.modules.utils.build.SdkLevel;
 import com.google.android.material.tabs.TabLayout;
 import com.google.common.base.Objects;
 
@@ -106,7 +106,8 @@ public class ProfileTabs implements ProfileTabsAddons {
         mTabsContainer.setVisibility(shouldShow() ? View.VISIBLE : View.GONE);
 
         // Material next changes apply only for version S or greater
-        if (SdkLevel.isAtLeastS()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+//        if (SdkLevel.isAtLeastS()) {
             mTabSeparator.setVisibility(View.GONE);
             int tabContainerHeightInDp = (int)mTabsContainer.getContext().getResources().
                 getDimension(R.dimen.tab_container_height);
@@ -163,7 +164,8 @@ public class ProfileTabs implements ProfileTabsAddons {
     }
 
     private String getEnterpriseString(String updatableStringId, int defaultStringId) {
-        if (SdkLevel.isAtLeastT()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+//        if (SdkLevel.isAtLeastT()) {
             return getUpdatableEnterpriseString(updatableStringId, defaultStringId);
         } else {
             return mTabsContainer.getContext().getString(defaultStringId);

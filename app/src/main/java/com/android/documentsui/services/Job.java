@@ -44,6 +44,7 @@ import android.util.Log;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
 import androidx.annotation.PluralsRes;
 
 import com.android.documentsui.Metrics;
@@ -63,8 +64,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.annotation.Nullable;
 
 /**
  * A mashup of work item and ui progress update factory. Used by {@link FileOperationService}

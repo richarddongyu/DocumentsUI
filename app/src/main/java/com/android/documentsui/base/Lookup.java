@@ -16,8 +16,7 @@
 package com.android.documentsui.base;
 
 import java.util.function.Function;
-
-import javax.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /**
  * A {@link Function}-like interface for looking up information.

@@ -69,7 +69,7 @@ public class PreBootReceiver extends BroadcastReceiver {
             return;
         }
 
-        final String overlayPkg = info.getPackageName();
+        final String overlayPkg = null;//info.getPackageName();
         final String packageName = context.getPackageName();
 
         Resources overlayRes;

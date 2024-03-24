@@ -297,7 +297,7 @@ public class WriteableArchive extends Archive {
         synchronized (mEntries) {
             for (final String path : mPendingEntries) {
                 try {
-                    mZipOutputStream.putArchiveEntry(mEntries.get(path));
+                    mZipOutputStream.putArchiveEntry((ZipArchiveEntry) mEntries.get(path));
                     mZipOutputStream.closeArchiveEntry();
                 } catch (IOException e) {
                     Log.e(TAG, "Failed to flush empty entries.", e);

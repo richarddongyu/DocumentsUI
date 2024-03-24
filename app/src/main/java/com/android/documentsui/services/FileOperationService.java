@@ -30,6 +30,7 @@ import android.os.PowerManager;
 import android.os.UserManager;
 import android.util.Log;
 
+import androidx.annotation.GuardedBy;
 import androidx.annotation.IntDef;
 import androidx.annotation.VisibleForTesting;
 
@@ -46,7 +47,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import javax.annotation.concurrent.GuardedBy;
+//import javax.annotation.concurrent.GuardedBy;
 
 public class FileOperationService extends Service implements Job.Listener {
 

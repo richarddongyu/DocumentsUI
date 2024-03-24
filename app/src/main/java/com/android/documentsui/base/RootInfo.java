@@ -365,7 +365,7 @@ public class RootInfo implements Durable, Parcelable, Comparable<RootInfo> {
     }
 
     public boolean hasSettings() {
-        return (flags & Root.FLAG_HAS_SETTINGS) != 0;
+        return false;//(flags & Root.FLAG_HAS_SETTINGS) != 0;
     }
 
     public boolean supportsChildren() {
@@ -393,7 +393,7 @@ public class RootInfo implements Durable, Parcelable, Comparable<RootInfo> {
     }
 
     public boolean isAdvanced() {
-        return (flags & Root.FLAG_ADVANCED) != 0;
+        return false;//(flags & Root.FLAG_ADVANCED) != 0;
     }
 
     public boolean isLocalOnly() {
@@ -405,11 +405,11 @@ public class RootInfo implements Durable, Parcelable, Comparable<RootInfo> {
     }
 
     public boolean isSd() {
-        return (flags & Root.FLAG_REMOVABLE_SD) != 0;
+        return false;//(flags & Root.FLAG_REMOVABLE_SD) != 0;
     }
 
     public boolean isUsb() {
-        return (flags & Root.FLAG_REMOVABLE_USB) != 0;
+        return false;//(flags & Root.FLAG_REMOVABLE_USB) != 0;
     }
 
     /**

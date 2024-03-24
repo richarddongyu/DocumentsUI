@@ -24,6 +24,8 @@ import android.net.Uri;
 import android.os.FileUtils;
 import android.util.Log;
 
+import androidx.annotation.Nullable;
+
 import com.android.documentsui.base.DocumentStack;
 import com.android.documentsui.base.Shared;
 import com.android.documentsui.base.State;
@@ -31,14 +33,13 @@ import com.android.documentsui.roots.ProvidersAccess;
 
 import java.io.IOException;
 
-import javax.annotation.Nullable;
-
 /**
  * An interface that stores the last accessed stack of the caller
  */
 public interface LastAccessedStorage {
 
-    @Nullable DocumentStack getLastAccessed(
+    @Nullable
+    DocumentStack getLastAccessed(
             Activity activity, ProvidersAccess providers, State state);
 
     void setLastAccessed(Activity activity, DocumentStack stack);

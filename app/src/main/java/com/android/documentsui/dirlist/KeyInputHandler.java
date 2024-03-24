@@ -17,13 +17,12 @@ package com.android.documentsui.dirlist;
 
 import android.view.KeyEvent;
 
+import androidx.annotation.Nullable;
 import androidx.recyclerview.selection.ItemDetailsLookup.ItemDetails;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.selection.SelectionTracker.SelectionPredicate;
 
 import com.android.documentsui.base.Events;
-
-import javax.annotation.Nullable;
 
 // TODO(b/69058726): Migrate to RecyclerView-Selection
 /**

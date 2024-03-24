@@ -31,6 +31,8 @@ import android.provider.DocumentsContract;
 import android.provider.DocumentsContract.Document;
 import android.util.Log;
 
+import androidx.annotation.Nullable;
+
 import com.android.documentsui.MetricConsts;
 import com.android.documentsui.Metrics;
 import com.android.documentsui.R;
@@ -41,8 +43,6 @@ import com.android.documentsui.base.UserId;
 import com.android.documentsui.clipping.UrisSupplier;
 
 import java.io.FileNotFoundException;
-
-import javax.annotation.Nullable;
 
 // TODO: Stop extending CopyJob.
 final class MoveJob extends CopyJob {

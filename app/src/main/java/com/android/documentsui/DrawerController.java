@@ -24,10 +24,11 @@ import android.view.Gravity;
 import android.view.View;
 
 import androidx.annotation.ColorRes;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.drawerlayout.widget.DrawerLayout.DrawerListener;
-import androidx.legacy.app.ActionBarDrawerToggle;
+//import androidx.legacy.app.ActionBarDrawerToggle;
 
 import com.android.documentsui.base.Display;
 import com.android.documentsui.base.Providers;
@@ -65,7 +66,8 @@ public abstract class DrawerController implements DrawerListener {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 activity,
                 layout,
-                R.drawable.ic_hamburger,
+                toolbar,
+//                R.drawable.ic_hamburger,
                 R.string.drawer_open,
                 R.string.drawer_close);
 

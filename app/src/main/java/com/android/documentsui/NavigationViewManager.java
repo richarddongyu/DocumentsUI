@@ -23,6 +23,7 @@ import android.content.res.TypedArray;
 import android.graphics.Outline;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewOutlineProvider;
@@ -40,7 +41,7 @@ import com.android.documentsui.base.State;
 import com.android.documentsui.base.UserId;
 import com.android.documentsui.dirlist.AnimationView;
 import com.android.documentsui.util.VersionUtils;
-import com.android.modules.utils.build.SdkLevel;
+//import com.android.modules.utils.build.SdkLevel;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
@@ -140,7 +141,7 @@ public class NavigationViewManager implements AppBarLayout.OnOffsetChangedListen
         // move directory_header out of the AppBarLayout.
 
         Window window = mActivity.getWindow();
-        View actionBar = window.getDecorView().findViewById(R.id.action_mode_bar);
+        View actionBar = null;//window.getDecorView().findViewById(R.id.action_mode_bar);
         int dynamicHeaderColor = ContextCompat.getColor(mActivity,
                 offset == 0 ? mDefaultStatusBarColorResId : R.color.color_surface_header);
         if (actionBar != null) {
@@ -159,7 +160,8 @@ public class NavigationViewManager implements AppBarLayout.OnOffsetChangedListen
 
     public void setSearchBarClickListener(View.OnClickListener listener) {
         mSearchBarView.setOnClickListener(listener);
-        if (SdkLevel.isAtLeastU()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+//        if (SdkLevel.isAtLeastU()) {
             try {
                 mSearchBarView.setHandwritingDelegatorCallback(
                         () -> listener.onClick(mSearchBarView));

@@ -26,6 +26,8 @@ import android.os.Parcelable;
 import android.provider.DocumentsProvider;
 import android.util.Log;
 
+import androidx.annotation.Nullable;
+
 import com.android.documentsui.picker.LastAccessedProvider;
 
 import java.io.DataInputStream;
@@ -37,8 +39,6 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
-
-import javax.annotation.Nullable;
 
 /**
  * Representation of a stack of {@link DocumentInfo}, usually the result of a

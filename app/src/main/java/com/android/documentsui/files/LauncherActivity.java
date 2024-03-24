@@ -54,7 +54,7 @@ public class LauncherActivity extends Activity {
     // Array of boolean extras that should be copied when creating new launch intents.
     // Missing intents will be ignored.
     private static final String[] PERSISTENT_BOOLEAN_EXTRAS = {
-        DocumentsContract.EXTRA_SHOW_ADVANCED
+//        DocumentsContract.EXTRA_SHOW_ADVANCED
     };
 
     @Override

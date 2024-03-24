@@ -18,6 +18,8 @@ package com.android.documentsui.picker;
 
 import android.app.Activity;
 
+import androidx.annotation.Nullable;
+
 import com.android.documentsui.AbstractActionHandler.CommonAddons;
 import com.android.documentsui.base.DocumentStack;
 import com.android.documentsui.base.PairedTask;
@@ -25,8 +27,6 @@ import com.android.documentsui.base.State;
 import com.android.documentsui.roots.ProvidersAccess;
 
 import java.util.function.Consumer;
-
-import javax.annotation.Nullable;
 
 /**
  * Loads the last used path (stack) from Recents (history).

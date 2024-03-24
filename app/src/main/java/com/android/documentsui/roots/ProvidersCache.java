@@ -110,7 +110,7 @@ public class ProvidersCache implements ProvidersAccess, LookupApplicationName {
     private PendingResult mBootCompletedResult;
 
     @GuardedBy("mLock")
-    private Multimap<UserAuthority, RootInfo> mRoots = ArrayListMultimap.create();
+    private Multimap<UserAuthority, RootInfo> mRoots = new ArrayListMultimap<>();//ArrayListMultimap.create();
     @GuardedBy("mLock")
     private HashSet<UserAuthority> mStoppedAuthorities = new HashSet<>();
     private final Semaphore mMultiProviderUpdateTaskSemaphore = new Semaphore(1);
@@ -342,17 +342,17 @@ public class ProvidersCache implements ProvidersAccess, LookupApplicationName {
         if (!forceRefresh) {
             // Look for roots data that we might have cached for ourselves in the
             // long-lived system process.
-            final Bundle systemCache = resolver.getCache(rootsUri);
-            if (systemCache != null) {
-                ArrayList<RootInfo> cachedRoots = systemCache.getParcelableArrayList(TAG);
-                assert (cachedRoots != null);
-                if (!cachedRoots.isEmpty() || PERMIT_EMPTY_CACHE.contains(authority)) {
-                    if (VERBOSE) Log.v(TAG, "System cache hit for " + authority);
-                    return cachedRoots;
-                } else {
-                    Log.w(TAG, "Ignoring empty system cache hit for " + authority);
-                }
-            }
+//            final Bundle systemCache = resolver.getCache(rootsUri);
+//            if (systemCache != null) {
+//                ArrayList<RootInfo> cachedRoots = systemCache.getParcelableArrayList(TAG);
+//                assert (cachedRoots != null);
+//                if (!cachedRoots.isEmpty() || PERMIT_EMPTY_CACHE.contains(authority)) {
+//                    if (VERBOSE) Log.v(TAG, "System cache hit for " + authority);
+//                    return cachedRoots;
+//                } else {
+//                    Log.w(TAG, "Ignoring empty system cache hit for " + authority);
+//                }
+//            }
         }
 
         ContentProviderClient client = null;
@@ -383,7 +383,7 @@ public class ProvidersCache implements ProvidersAccess, LookupApplicationName {
             Log.i(TAG, "Provider returned no roots. Possibly naughty: " + authority);
         } else {
             systemCache.putParcelableArrayList(TAG, roots);
-            resolver.putCache(rootsUri, systemCache);
+//            resolver.putCache(rootsUri, systemCache);
         }
 
         return roots;
@@ -475,14 +475,14 @@ public class ProvidersCache implements ProvidersAccess, LookupApplicationName {
         for (UserAuthority userAuthority : mObservedAuthoritiesDetails.keySet()) {
             List<String> roots = new ArrayList<>();
             Uri rootsUri = DocumentsContract.buildRootsUri(userAuthority.authority);
-            Bundle systemCache = userAuthority.userId.getContentResolver(mContext).getCache(
-                    rootsUri);
-            if (systemCache != null) {
-                ArrayList<RootInfo> cachedRoots = systemCache.getParcelableArrayList(TAG);
-                for (RootInfo root : cachedRoots) {
-                    roots.add(root.toDebugString());
-                }
-            }
+//            Bundle systemCache = userAuthority.userId.getContentResolver(mContext).getCache(
+//                    rootsUri);
+//            if (systemCache != null) {
+//                ArrayList<RootInfo> cachedRoots = systemCache.getParcelableArrayList(TAG);
+//                for (RootInfo root : cachedRoots) {
+//                    roots.add(root.toDebugString());
+//                }
+//            }
 
             output.append((output.length() == 0) ? "System cache: " : ", ");
             output.append(userAuthority).append("=").append(roots);
@@ -499,7 +499,7 @@ public class ProvidersCache implements ProvidersAccess, LookupApplicationName {
         private final Runnable mCallback;
 
         @GuardedBy("mLock")
-        private Multimap<UserAuthority, RootInfo> mLocalRoots = ArrayListMultimap.create();
+        private Multimap<UserAuthority, RootInfo> mLocalRoots = new ArrayListMultimap<>();//ArrayListMultimap.create();
         @GuardedBy("mLock")
         private HashSet<UserAuthority> mLocalStoppedAuthorities = new HashSet<>();
 

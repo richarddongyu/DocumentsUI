@@ -22,6 +22,7 @@ import static com.android.documentsui.base.State.ACTION_OPEN;
 import static com.android.documentsui.base.State.ActionType;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -52,7 +53,7 @@ import com.android.documentsui.base.EventHandler;
 import com.android.documentsui.base.RootInfo;
 import com.android.documentsui.base.Shared;
 import com.android.documentsui.base.State;
-import com.android.modules.utils.build.SdkLevel;
+//import com.android.modules.utils.build.SdkLevel;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -227,7 +228,7 @@ public class SearchViewManager implements
         mSearchView.setOnCloseListener(this);
         mSearchView.setOnSearchClickListener(this);
         mSearchView.setOnQueryTextFocusChangeListener(this);
-        final View clearButton = mSearchView.findViewById(R.id.search_close_btn);
+        final View clearButton = null;//mSearchView.findViewById(R.id.search_close_btn);
         if (clearButton != null) {
             clearButton.setPadding(clearButton.getPaddingStart() + getPixelForDp(4),
                     clearButton.getPaddingTop(), clearButton.getPaddingEnd() + getPixelForDp(4),
@@ -238,8 +239,9 @@ public class SearchViewManager implements
                 mListener.onSearchViewClearClicked();
             });
         }
-        if (SdkLevel.isAtLeastU()) {
-            final View textView = mSearchView.findViewById(R.id.search_src_text);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+//        if (SdkLevel.isAtLeastU()) {
+            final View textView = null;//mSearchView.findViewById(R.id.search_src_text);
             if (textView != null) {
                 try {
                     textView.setIsHandwritingDelegate(true);

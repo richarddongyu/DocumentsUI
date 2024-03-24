@@ -47,7 +47,7 @@ public class ThemeOverlayManager {
     public ThemeOverlayManager(@NonNull OverlayManager overlayManager, String targetPackageId) {
         mOverlayManager = overlayManager;
         mTargetPackageId = targetPackageId;
-        mUserHandle = UserHandle.of(UserHandle.myUserId());
+//        mUserHandle = UserHandle.of(UserHandle.myUserId());
     }
 
     /**
@@ -71,7 +71,7 @@ public class ThemeOverlayManager {
         // TODO: Alternative way to support enabled multiple overlay packages by priority is
         //       tag meta-data in the application of overlay package's AndroidManifest.xml
         // TODO: Parse meta data through PM in DocumentsApplication and use collection to reorder
-        return mOverlayManager.getOverlayInfosForTarget(mTargetPackageId, mUserHandle);
+        return null;//mOverlayManager.getOverlayInfosForTarget(mTargetPackageId, mUserHandle);
     }
 
     /**
@@ -84,14 +84,14 @@ public class ThemeOverlayManager {
     @Nullable
     public OverlayInfo getValidOverlay(@NonNull PackageManager pm) {
         for (OverlayInfo info : getOverlayInfo()) {
-            try {
-                final ApplicationInfo ai = pm.getApplicationInfo(info.getPackageName(), 0);
-                if ((ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
-                    return info;
-                }
-            } catch (PackageManager.NameNotFoundException e) {
-                Log.w(TAG, "Can't get ApplicationInfo of overlay package " + info.getPackageName());
-            }
+//            try {
+//                final ApplicationInfo ai = pm.getApplicationInfo(info.getPackageName(), 0);
+//                if ((ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+//                    return info;
+//                }
+//            } catch (PackageManager.NameNotFoundException e) {
+//                Log.w(TAG, "Can't get ApplicationInfo of overlay package " + info.getPackageName());
+//            }
         }
         return null;
     }
@@ -117,16 +117,16 @@ public class ThemeOverlayManager {
         boolean bSuccess = true;
         for (OverlayInfo info : infos) {
             try {
-                if (info.isEnabled() != enabled) {
-                    mOverlayManager.setEnabled(info.getPackageName(), enabled, mUserHandle);
-                } else {
-                    Log.w(TAG, "Skip enabled overlay package:" + info.getPackageName()
-                            + ", user:" + mUserHandle);
-                    bSuccess = false;
-                }
+//                if (info.isEnabled() != enabled) {
+//                    mOverlayManager.setEnabled(info.getPackageName(), enabled, mUserHandle);
+//                } else {
+//                    Log.w(TAG, "Skip enabled overlay package:" + info.getPackageName()
+//                            + ", user:" + mUserHandle);
+//                    bSuccess = false;
+//                }
             } catch (RuntimeException re) {
-                Log.e(TAG, "Failed to enable overlay: " + info.getPackageName() + ", user: "
-                        + mUserHandle);
+//                Log.e(TAG, "Failed to enable overlay: " + info.getPackageName() + ", user: "
+//                        + mUserHandle);
                 bSuccess = false;
             }
         }

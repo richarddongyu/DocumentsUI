@@ -48,7 +48,7 @@ import com.android.documentsui.base.State;
 import com.android.documentsui.base.UserId;
 import com.android.documentsui.roots.RootCursorWrapper;
 import com.android.documentsui.ui.Views;
-import com.android.modules.utils.build.SdkLevel;
+//import com.android.modules.utils.build.SdkLevel;
 
 import java.util.ArrayList;
 import java.util.function.Function;
@@ -98,7 +98,8 @@ final class ListDocumentHolder extends DocumentHolder {
         mFileTypeLookup = fileTypeLookup;
         mDoc = new DocumentInfo();
 
-        if (SdkLevel.isAtLeastT()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+//        if (SdkLevel.isAtLeastT()) {
             setUpdatableWorkProfileIcon(context);
         }
     }

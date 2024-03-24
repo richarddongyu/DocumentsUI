@@ -43,7 +43,7 @@ import java.util.Objects;
 public final class UserId {
 
     // A unspecified user is used as when the user's value is uninitialized. e.g. rootInfo.reset()
-    public static final UserId UNSPECIFIED_USER = UserId.of(UserHandle.of(-1000));
+    public static final UserId UNSPECIFIED_USER = null;//UserId.of(UserHandle.of(-1000));
     // A current user represents the user of the app's process. It is mainly used for comparison.
     public static final UserId CURRENT_USER = UserId.of(Process.myUserHandle());
     // A default user represents the user of the app's process. It is mainly used for operation
@@ -72,7 +72,7 @@ public final class UserId {
      * @see UserHandle#getIdentifier
      */
     public static UserId of(int userIdentifier) {
-        return of(UserHandle.of(userIdentifier));
+        return null;//of(UserHandle.of(userIdentifier));
     }
 
     /**
@@ -86,11 +86,12 @@ public final class UserId {
         if (CURRENT_USER.equals(this) || isUnspecified()) {
             return context;
         }
-        try {
-            return context.createPackageContextAsUser("android", /* flags= */ 0, mUserHandle);
-        } catch (PackageManager.NameNotFoundException e) {
-            throw new IllegalStateException("android package not found.");
-        }
+        return null;
+//        try {
+//            return context.createPackageContextAsUser("android", /* flags= */ 0, mUserHandle);
+//        } catch (PackageManager.NameNotFoundException e) {
+//            throw new IllegalStateException("android package not found.");
+//        }
 
     }
 
@@ -135,14 +136,14 @@ public final class UserId {
      * Returns true if this user refers to the system user; false otherwise.
      */
     public boolean isSystem() {
-        return mUserHandle.isSystem();
+        return false;//mUserHandle.isSystem();
     }
 
     /**
      * Returns true if the this user is a managed profile.
      */
     public boolean isManagedProfile(UserManager userManager) {
-        return userManager.isManagedProfile(mUserHandle.getIdentifier());
+        return false;//userManager.isManagedProfile(mUserHandle.getIdentifier());
     }
 
     /**
@@ -171,7 +172,7 @@ public final class UserId {
      * Returns a document uri representing this user.
      */
     public Uri buildDocumentUriAsUser(String authority, String documentId) {
-        return DocumentsContract.buildDocumentUriAsUser(authority, documentId, mUserHandle);
+        return null;//DocumentsContract.buildDocumentUriAsUser(authority, documentId, mUserHandle);
     }
 
     /**
@@ -190,7 +191,8 @@ public final class UserId {
      * Starts activity for this user
      */
     public void startActivityAsUser(Context context, Intent intent) {
-        context.startActivityAsUser(intent, mUserHandle);
+        context.startActivity(intent);
+//        context.startActivityAsUser(intent, mUserHandle);
     }
 
     /**
@@ -198,7 +200,7 @@ public final class UserId {
      * by {@link UserId#of(int)}.
      */
     public int getIdentifier() {
-        return mUserHandle.getIdentifier();
+        return -1;//mUserHandle.getIdentifier();
     }
 
     private boolean isUnspecified() {
@@ -207,7 +209,7 @@ public final class UserId {
 
     @Override
     public String toString() {
-        return isUnspecified() ? "UNSPECIFIED" : String.valueOf(mUserHandle.getIdentifier());
+        return isUnspecified() ? "UNSPECIFIED" : String.valueOf(-1);//mUserHandle.getIdentifier());
     }
 
     @Override
@@ -241,7 +243,8 @@ public final class UserId {
         switch (version) {
             case VERSION_INIT:
                 int userId = in.readInt();
-                return UserId.of(UserHandle.of(userId));
+                return null;
+//                return UserId.of(UserHandle.of(userId));
             default:
                 throw new ProtocolException("Unknown version " + version);
         }
@@ -252,7 +255,8 @@ public final class UserId {
      */
     public static void write(DataOutputStream out, UserId userId) throws IOException {
         out.writeInt(VERSION_INIT);
-        out.writeInt(userId.mUserHandle.getIdentifier());
+//        out.writeInt(userId.mUserHandle.getIdentifier());
+        out.writeInt(0);
     }
 
     /**

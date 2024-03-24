@@ -87,7 +87,7 @@ public class DocumentsApplication extends Application {
         if (client == null) {
             throw new RemoteException("Failed to acquire provider for " + authority);
         }
-        client.setDetectNotResponding(PROVIDER_ANR_TIMEOUT);
+//        client.setDetectNotResponding(PROVIDER_ANR_TIMEOUT);
         return client;
     }
 

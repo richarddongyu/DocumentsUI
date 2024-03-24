@@ -24,6 +24,7 @@ import android.net.Uri;
 import android.view.DragEvent;
 
 import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.selection.ItemDetailsLookup.ItemDetails;
 
 import com.android.documentsui.base.BooleanConsumer;
@@ -37,7 +38,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.List;
 import java.util.function.Consumer;
 
-import javax.annotation.Nullable;
 
 /**
  * Interface to handle action for document.
@@ -120,7 +120,8 @@ public interface ActionHandler {
 
     void showInspector(DocumentInfo doc);
 
-    @Nullable DocumentInfo renameDocument(String name, DocumentInfo document);
+    @Nullable
+    DocumentInfo renameDocument(String name, DocumentInfo document);
 
     /**
      * If container, then opens the container, otherwise views using the specified type of view.

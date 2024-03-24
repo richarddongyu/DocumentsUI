@@ -58,8 +58,8 @@
             android:id="@+id/option_menu_sort"
             android:title="@string/menu_sort"
             android:icon="@drawable/ic_sort"
-            android:showAsAction="never"
-            android:visible="false" />
+            android:visible="false"
+            app:showAsAction="never" />
         <item
             android:id="@+id/option_menu_select_all"
             android:title="@string/menu_select_all"

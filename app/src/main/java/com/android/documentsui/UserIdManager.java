@@ -171,16 +171,16 @@ public interface UserIdManager {
             UserId systemUser = null;
             UserId managedUser = null;
 
-            for (UserHandle userHandle : userProfiles) {
-                if (userHandle.isSystem()) {
-                    systemUser = UserId.of(userHandle);
-                    continue;
-                }
-                if (managedUser == null
-                        && userManager.isManagedProfile(userHandle.getIdentifier())) {
-                    managedUser = UserId.of(userHandle);
-                }
-            }
+//            for (UserHandle userHandle : userProfiles) {
+//                if (userHandle.isSystem()) {
+//                    systemUser = UserId.of(userHandle);
+//                    continue;
+//                }
+//                if (managedUser == null
+//                        && userManager.isManagedProfile(userHandle.getIdentifier())) {
+//                    managedUser = UserId.of(userHandle);
+//                }
+//            }
 
             if (mCurrentUser.isSystem()) {
                 // 1. If the current user is system (personal), add the managed user.
@@ -212,9 +212,10 @@ public interface UserIdManager {
         private static boolean isDeviceSupported(Context context) {
             // The feature requires Android R DocumentsContract APIs and INTERACT_ACROSS_USERS
             // permission.
-            return VersionUtils.isAtLeastR()
-                    && context.checkSelfPermission(Manifest.permission.INTERACT_ACROSS_USERS)
-                    == PackageManager.PERMISSION_GRANTED;
+//            return VersionUtils.isAtLeastR()
+//                    && context.checkSelfPermission(Manifest.permission.INTERACT_ACROSS_USERS)
+//                    == PackageManager.PERMISSION_GRANTED;
+            return false;
         }
     }
 }

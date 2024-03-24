@@ -23,14 +23,13 @@ import android.view.DragEvent;
 import android.view.View;
 import android.view.View.OnDragListener;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
 import com.android.documentsui.ItemDragListener.DragHost;
 
 import java.util.Timer;
 import java.util.TimerTask;
-
-import javax.annotation.Nullable;
 
 /**
  * An {@link OnDragListener} that adds support for "spring loading views". Use this when you want

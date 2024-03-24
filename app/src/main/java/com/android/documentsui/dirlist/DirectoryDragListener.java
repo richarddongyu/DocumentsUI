@@ -19,11 +19,11 @@ package com.android.documentsui.dirlist;
 import android.view.DragEvent;
 import android.view.View;
 
+import androidx.annotation.Nullable;
+
 import com.android.documentsui.ItemDragListener;
 
 import java.util.TimerTask;
-
-import javax.annotation.Nullable;
 
 class DirectoryDragListener extends ItemDragListener<DragHost<?>> {
 

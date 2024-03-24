@@ -44,6 +44,7 @@ import android.widget.TextView;
 
 import androidx.annotation.CallSuper;
 import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ActionMenuView;
@@ -79,8 +80,6 @@ import com.google.android.material.appbar.AppBarLayout;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import javax.annotation.Nullable;
 
 public abstract class BaseActivity
         extends AppCompatActivity implements CommonAddons, NavigationViewManager.Environment {

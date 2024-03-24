@@ -17,6 +17,8 @@ package com.android.documentsui.dirlist;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
+
 import com.android.documentsui.base.DocumentInfo;
 import com.android.documentsui.base.RootInfo;
 import com.android.documentsui.base.Shared;
@@ -24,8 +26,6 @@ import com.android.documentsui.services.FileOperation;
 import com.android.documentsui.services.FileOperationService;
 import com.android.documentsui.sorting.SortDimension.SortDirection;
 import com.android.documentsui.sorting.SortModel;
-
-import javax.annotation.Nullable;
 
 final class DirectoryState {
 

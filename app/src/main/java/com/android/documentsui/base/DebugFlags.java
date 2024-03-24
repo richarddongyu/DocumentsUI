@@ -18,9 +18,9 @@ package com.android.documentsui.base;
 import android.content.ContentResolver;
 import android.os.Bundle;
 
-import com.android.documentsui.queries.CommandInterceptor;
+import androidx.annotation.Nullable;
 
-import javax.annotation.Nullable;
+import com.android.documentsui.queries.CommandInterceptor;
 
 /**
  * Shared values that may be set by {@link CommandInterceptor}.

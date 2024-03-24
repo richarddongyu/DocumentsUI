@@ -52,7 +52,7 @@ import com.android.documentsui.base.RootInfo;
 import com.android.documentsui.base.State;
 import com.android.documentsui.base.UserId;
 import com.android.documentsui.dirlist.DocumentsAdapter.Environment;
-import com.android.modules.utils.build.SdkLevel;
+//import com.android.modules.utils.build.SdkLevel;
 
 /**
  * Data object used by {@link InflateMessageDocumentHolder} and {@link HeaderMessageDocumentHolder}.
@@ -203,9 +203,9 @@ abstract class Message {
 
         InflateMessage(Environment env, Runnable callback) {
             super(env, callback);
-            mCanModifyQuietMode =
-                    mEnv.getContext().checkSelfPermission(Manifest.permission.MODIFY_QUIET_MODE)
-                            == PackageManager.PERMISSION_GRANTED;
+            mCanModifyQuietMode = false;
+//                    mEnv.getContext().checkSelfPermission(Manifest.permission.MODIFY_QUIET_MODE)
+//                            == PackageManager.PERMISSION_GRANTED;
         }
 
         @Override
@@ -333,7 +333,8 @@ abstract class Message {
         }
 
         private String getEnterpriseString(String updatableStringId, int defaultStringId) {
-            if (SdkLevel.isAtLeastT()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+//            if (SdkLevel.isAtLeastT()) {
                 return getUpdatableEnterpriseString(updatableStringId, defaultStringId);
             } else {
                 return mEnv.getContext().getString(defaultStringId);
@@ -349,7 +350,8 @@ abstract class Message {
         }
 
         private Drawable getWorkProfileOffIcon() {
-            if (SdkLevel.isAtLeastT()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+//            if (SdkLevel.isAtLeastT()) {
                 return getUpdatableWorkProfileIcon();
             } else {
                 return mEnv.getContext().getDrawable(R.drawable.work_off);
