@@ -47,14 +47,14 @@ import com.blabla.documentsui.R;
  * Sort model that contains all columns and their sorting state.
  */
 public class SortModel implements Parcelable {
-    @IntDef({
-            SORT_DIMENSION_ID_UNKNOWN,
-            SORT_DIMENSION_ID_TITLE,
-            SORT_DIMENSION_ID_SUMMARY,
-            SORT_DIMENSION_ID_SIZE,
-            SORT_DIMENSION_ID_FILE_TYPE,
-            SORT_DIMENSION_ID_DATE
-    })
+//    @IntDef({
+//            SORT_DIMENSION_ID_UNKNOWN,
+//            SORT_DIMENSION_ID_TITLE,
+//            SORT_DIMENSION_ID_SUMMARY,
+//            SORT_DIMENSION_ID_SIZE,
+//            SORT_DIMENSION_ID_FILE_TYPE,
+//            SORT_DIMENSION_ID_DATE
+//    })
     @Retention(RetentionPolicy.SOURCE)
     public @interface SortDimensionId {}
     public static final int SORT_DIMENSION_ID_UNKNOWN = 0;
@@ -239,34 +239,41 @@ public class SortModel implements Parcelable {
         // should only be called when R.bool.feature_content_paging is true
 
         final int id = getSortedDimensionId();
-        switch (id) {
-            case SORT_DIMENSION_ID_UNKNOWN:
-                return;
-            case SortModel.SORT_DIMENSION_ID_TITLE:
-                queryArgs.putStringArray(
-                        ContentResolver.QUERY_ARG_SORT_COLUMNS,
-                        new String[]{ Document.COLUMN_DISPLAY_NAME });
-                break;
-            case SortModel.SORT_DIMENSION_ID_DATE:
-                queryArgs.putStringArray(
-                        ContentResolver.QUERY_ARG_SORT_COLUMNS,
-                        new String[]{ Document.COLUMN_LAST_MODIFIED });
-                break;
-            case SortModel.SORT_DIMENSION_ID_SIZE:
-                queryArgs.putStringArray(
-                        ContentResolver.QUERY_ARG_SORT_COLUMNS,
-                        new String[]{ Document.COLUMN_SIZE });
-                break;
-            case SortModel.SORT_DIMENSION_ID_FILE_TYPE:
-                // Unfortunately sorting by mime type is pretty much guaranteed different from
-                // sorting by user-friendly type, so there is no point to guide the provider to sort
-                // in a particular order.
-                return;
-            default:
-                throw new IllegalStateException(
-                        "Unexpected sort dimension id: " + id);
+        if (id == SORT_DIMENSION_ID_UNKNOWN) {
+            return;
+        } else if (id == SortModel.SORT_DIMENSION_ID_TITLE) {
+            queryArgs.putStringArray(
+                    ContentResolver.QUERY_ARG_SORT_COLUMNS,
+                    new String[]{ Document.COLUMN_DISPLAY_NAME });
         }
-
+//        switch (id) {
+//            case SORT_DIMENSION_ID_UNKNOWN:
+//                return;
+//            case SortModel.SORT_DIMENSION_ID_TITLE:
+//                queryArgs.putStringArray(
+//                        ContentResolver.QUERY_ARG_SORT_COLUMNS,
+//                        new String[]{ Document.COLUMN_DISPLAY_NAME });
+//                break;
+//            case SortModel.SORT_DIMENSION_ID_DATE:
+//                queryArgs.putStringArray(
+//                        ContentResolver.QUERY_ARG_SORT_COLUMNS,
+//                        new String[]{ Document.COLUMN_LAST_MODIFIED });
+//                break;
+//            case SortModel.SORT_DIMENSION_ID_SIZE:
+//                queryArgs.putStringArray(
+//                        ContentResolver.QUERY_ARG_SORT_COLUMNS,
+//                        new String[]{ Document.COLUMN_SIZE });
+//                break;
+//            case SortModel.SORT_DIMENSION_ID_FILE_TYPE:
+//                // Unfortunately sorting by mime type is pretty much guaranteed different from
+//                // sorting by user-friendly type, so there is no point to guide the provider to sort
+//                // in a particular order.
+//                return;
+//            default:
+//                throw new IllegalStateException(
+//                        "Unexpected sort dimension id: " + id);
+//        }
+//
         final SortDimension dimension = getDimensionById(id);
         switch (dimension.getSortDirection()) {
             case SortDimension.SORT_DIRECTION_ASCENDING:
@@ -302,17 +309,17 @@ public class SortModel implements Parcelable {
             case SortModel.SORT_DIMENSION_ID_TITLE:
                 columnName = Document.COLUMN_DISPLAY_NAME;
                 break;
-            case SortModel.SORT_DIMENSION_ID_DATE:
-                columnName = Document.COLUMN_LAST_MODIFIED;
-                break;
-            case SortModel.SORT_DIMENSION_ID_SIZE:
-                columnName = Document.COLUMN_SIZE;
-                break;
-            case SortModel.SORT_DIMENSION_ID_FILE_TYPE:
+//            case SortModel.SORT_DIMENSION_ID_DATE:
+//                columnName = Document.COLUMN_LAST_MODIFIED;
+//                break;
+//            case SortModel.SORT_DIMENSION_ID_SIZE:
+//                columnName = Document.COLUMN_SIZE;
+//                break;
+//            case SortModel.SORT_DIMENSION_ID_FILE_TYPE:
                 // Unfortunately sorting by mime type is pretty much guaranteed different from
                 // sorting by user-friendly type, so there is no point to guide the provider to sort
                 // in a particular order.
-                return null;
+//                return null;
             default:
                 throw new IllegalStateException(
                         "Unexpected sort dimension id: " + id);

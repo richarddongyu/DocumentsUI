@@ -45,7 +45,7 @@ dependencies {
     implementation(libs.navigation.ui)
     implementation(libs.recyclerview.selection)
     implementation(libs.commons.compress)
-    implementation(libs.google.collect)
+//    implementation(libs.google.collect)
     implementation(libs.swiperefreshlayout)
     implementation(libs.guava)
     testImplementation(libs.junit)

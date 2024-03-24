@@ -303,26 +303,33 @@ public class FilesActivity extends BaseActivity implements AbstractActionHandler
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         DirectoryFragment dir;
-        switch (item.getItemId()) {
-            case R.id.option_menu_create_dir:
-                assert(canCreateDirectory());
-                mInjector.actions.showCreateDirectoryDialog();
-                break;
-            case R.id.option_menu_new_window:
-                mInjector.actions.openInNewWindow(mState.stack);
-                break;
-            case R.id.option_menu_settings:
-                mInjector.actions.openSettings(getCurrentRoot());
-                break;
-            case R.id.option_menu_select_all:
-                mInjector.actions.selectAllFiles();
-                break;
-            case R.id.option_menu_inspect:
-                mInjector.actions.showInspector(getCurrentDirectory());
-                break;
-            default:
-                return super.onOptionsItemSelected(item);
+        int id = item.getItemId();
+        if (id == R.id.option_menu_create_dir) {
+            assert(canCreateDirectory());
+            mInjector.actions.showCreateDirectoryDialog();
+        } else if (id == R.id.option_menu_new_window) {
+            mInjector.actions.openInNewWindow(mState.stack);
         }
+//        switch (item.getItemId()) {
+//            case R.id.option_menu_create_dir:
+//                assert(canCreateDirectory());
+//                mInjector.actions.showCreateDirectoryDialog();
+//                break;
+//            case R.id.option_menu_new_window:
+//                mInjector.actions.openInNewWindow(mState.stack);
+//                break;
+//            case R.id.option_menu_settings:
+//                mInjector.actions.openSettings(getCurrentRoot());
+//                break;
+//            case R.id.option_menu_select_all:
+//                mInjector.actions.selectAllFiles();
+//                break;
+//            case R.id.option_menu_inspect:
+//                mInjector.actions.showInspector(getCurrentDirectory());
+//                break;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
         return true;
     }
 

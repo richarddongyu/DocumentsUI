@@ -500,47 +500,56 @@ public abstract class BaseActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+
+        if (itemId == android.R.id.home) {
+            onBackPressed();
+            return true;
+        } else if (itemId == R.id.option_menu_create_dir) {
+            getInjector().actions.showCreateDirectoryDialog();
+            return true;
+        }
 
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
                 return true;
 
-            case R.id.option_menu_create_dir:
-                getInjector().actions.showCreateDirectoryDialog();
-                return true;
+//            case R.id.option_menu_create_dir:
+//                getInjector().actions.showCreateDirectoryDialog();
+//                return true;
 
-            case R.id.option_menu_search:
-                // SearchViewManager listens for this directly.
-                return false;
-
-            case R.id.option_menu_select_all:
-                getInjector().actions.selectAllFiles();
-                return true;
-
-            case R.id.option_menu_debug:
-                getInjector().actions.showDebugMessage();
-                return true;
-
-            case R.id.option_menu_sort:
-                getInjector().actions.showSortDialog();
-                return true;
-
-            case R.id.option_menu_launcher:
-                getInjector().actions.switchLauncherIcon();
-                return true;
-
-            case R.id.option_menu_show_hidden_files:
-                onClickedShowHiddenFiles();
-                return true;
-
-            case R.id.sub_menu_grid:
-                setViewMode(State.MODE_GRID);
-                return true;
-
-            case R.id.sub_menu_list:
-                setViewMode(State.MODE_LIST);
-                return true;
+//            case R.id.option_menu_search:
+//                // SearchViewManager listens for this directly.
+//                return false;
+//
+//            case R.id.option_menu_select_all:
+//                getInjector().actions.selectAllFiles();
+//                return true;
+//
+//            case R.id.option_menu_debug:
+//                getInjector().actions.showDebugMessage();
+//                return true;
+//
+//            case R.id.option_menu_sort:
+//                getInjector().actions.showSortDialog();
+//                return true;
+//
+//            case R.id.option_menu_launcher:
+//                getInjector().actions.switchLauncherIcon();
+//                return true;
+//
+//            case R.id.option_menu_show_hidden_files:
+//                onClickedShowHiddenFiles();
+//                return true;
+//
+//            case R.id.sub_menu_grid:
+//                setViewMode(State.MODE_GRID);
+//                return true;
+//
+//            case R.id.sub_menu_list:
+//                setViewMode(State.MODE_LIST);
+//                return true;
 
             default:
                 return super.onOptionsItemSelected(item);

@@ -609,20 +609,28 @@ public class RootsFragment extends Fragment {
             return false;
         }
         final RootItem rootItem = (RootItem) mAdapter.getItem(adapterMenuInfo.position);
+        if (item.getItemId() == R.id.root_menu_eject_root) {
+            final View ejectIcon = adapterMenuInfo.targetView.findViewById(R.id.action_icon);
+            ejectClicked(ejectIcon, rootItem.root, mActionHandler);
+            return true;
+        } else if (item.getItemId() == R.id.root_menu_open_in_new_window) {
+            mActionHandler.openInNewWindow(new DocumentStack(rootItem.root));
+            return true;
+        }
         switch (item.getItemId()) {
-            case R.id.root_menu_eject_root:
-                final View ejectIcon = adapterMenuInfo.targetView.findViewById(R.id.action_icon);
-                ejectClicked(ejectIcon, rootItem.root, mActionHandler);
-                return true;
-            case R.id.root_menu_open_in_new_window:
-                mActionHandler.openInNewWindow(new DocumentStack(rootItem.root));
-                return true;
-            case R.id.root_menu_paste_into_folder:
-                mActionHandler.pasteIntoFolder(rootItem.root);
-                return true;
-            case R.id.root_menu_settings:
-                mActionHandler.openSettings(rootItem.root);
-                return true;
+//            case R.id.root_menu_eject_root:
+//                final View ejectIcon = adapterMenuInfo.targetView.findViewById(R.id.action_icon);
+//                ejectClicked(ejectIcon, rootItem.root, mActionHandler);
+//                return true;
+//            case R.id.root_menu_open_in_new_window:
+//                mActionHandler.openInNewWindow(new DocumentStack(rootItem.root));
+//                return true;
+//            case R.id.root_menu_paste_into_folder:
+//                mActionHandler.pasteIntoFolder(rootItem.root);
+//                return true;
+//            case R.id.root_menu_settings:
+//                mActionHandler.openSettings(rootItem.root);
+//                return true;
             default:
                 if (SharedMinimal.DEBUG) {
                     Log.d(TAG, "Unhandled menu item selected: " + item);

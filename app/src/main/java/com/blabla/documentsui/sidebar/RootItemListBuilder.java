@@ -52,7 +52,7 @@ import java.util.List;
 class RootItemListBuilder {
     private final UserId mSelectedUser;
     private final List<UserId> mUserIds;
-    private final Multimap<String, RootItem> mItems = new ArrayListMultimap<>();//ArrayListMultimap.create();
+    private final Multimap<String, RootItem> mItems = ArrayListMultimap.create();
 
     RootItemListBuilder(UserId selectedUser, List<UserId> userIds) {
         mSelectedUser = checkNotNull(selectedUser);

@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.blabla.documentsui"
-    >
+    package="com.blabla.documentsui">
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_app_icon"
+        android:name=".DocumentsApplication"
         android:label="@string/app_label"
+        android:icon="@mipmap/ic_app_icon"
         android:roundIcon="@mipmap/ic_app_icon"
         android:supportsRtl="true"
+        android:allowBackup="true"
+        android:backupAgent=".prefs.BackupAgent"
         tools:targetApi="31">
         <activity
-            android:name="com.blabla.documentsui.picker.PickActivity"
+            android:name=".picker.PickActivity"
             android:exported="true"
             android:label="@string/app_label"
             android:theme="@style/LauncherTheme">

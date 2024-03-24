@@ -110,7 +110,7 @@ public class ProvidersCache implements ProvidersAccess, LookupApplicationName {
     private PendingResult mBootCompletedResult;
 
     @GuardedBy("mLock")
-    private Multimap<UserAuthority, RootInfo> mRoots = new ArrayListMultimap<>();//ArrayListMultimap.create();
+    private Multimap<UserAuthority, RootInfo> mRoots = ArrayListMultimap.create();
     @GuardedBy("mLock")
     private HashSet<UserAuthority> mStoppedAuthorities = new HashSet<>();
     private final Semaphore mMultiProviderUpdateTaskSemaphore = new Semaphore(1);
@@ -499,7 +499,7 @@ public class ProvidersCache implements ProvidersAccess, LookupApplicationName {
         private final Runnable mCallback;
 
         @GuardedBy("mLock")
-        private Multimap<UserAuthority, RootInfo> mLocalRoots = new ArrayListMultimap<>();//ArrayListMultimap.create();
+        private Multimap<UserAuthority, RootInfo> mLocalRoots = ArrayListMultimap.create();
         @GuardedBy("mLock")
         private HashSet<UserAuthority> mLocalStoppedAuthorities = new HashSet<>();
 

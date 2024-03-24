@@ -25,6 +25,7 @@ import com.blabla.documentsui.BaseActivity;
 import com.blabla.documentsui.Injector;
 import com.blabla.documentsui.MetricConsts;
 import com.blabla.documentsui.Metrics;
+import com.blabla.documentsui.R;
 import com.blabla.documentsui.base.State;
 import com.blabla.documentsui.base.State.ViewMode;
 
@@ -66,20 +67,30 @@ public final class SortController {
         final Injector<?> injector = ((BaseActivity)activity).getInjector();
         sortModel.setMetricRecorder((SortDimension dimension) -> {
             int sortType = MetricConsts.USER_ACTION_UNKNOWN;
-            switch (dimension.getId()) {
-                case SortModel.SORT_DIMENSION_ID_TITLE:
-                    sortType = MetricConsts.USER_ACTION_SORT_NAME;
-                    break;
-                case SortModel.SORT_DIMENSION_ID_SIZE:
-                    sortType = MetricConsts.USER_ACTION_SORT_SIZE;
-                    break;
-                case SortModel.SORT_DIMENSION_ID_DATE:
-                    sortType = MetricConsts.USER_ACTION_SORT_DATE;
-                    break;
-                case SortModel.SORT_DIMENSION_ID_FILE_TYPE:
-                    sortType = MetricConsts.USER_ACTION_SORT_TYPE;
-                    break;
+            int demensionId = dimension.getId();
+            if (demensionId == SortModel.SORT_DIMENSION_ID_TITLE) {
+                sortType = MetricConsts.USER_ACTION_SORT_NAME;
+            } else if (demensionId == SortModel.SORT_DIMENSION_ID_SIZE) {
+                sortType = MetricConsts.USER_ACTION_SORT_SIZE;
+            } else if (demensionId == SortModel.SORT_DIMENSION_ID_DATE) {
+                sortType = MetricConsts.USER_ACTION_SORT_DATE;
+            } else if (demensionId == SortModel.SORT_DIMENSION_ID_FILE_TYPE) {
+                sortType = MetricConsts.USER_ACTION_SORT_TYPE;
             }
+//            switch (dimension.getId()) {
+//                case SortModel.SORT_DIMENSION_ID_TITLE:
+//                    sortType = MetricConsts.USER_ACTION_SORT_NAME;
+//                    break;
+//                case SortModel.SORT_DIMENSION_ID_SIZE:
+//                    sortType = MetricConsts.USER_ACTION_SORT_SIZE;
+//                    break;
+//                case SortModel.SORT_DIMENSION_ID_DATE:
+//                    sortType = MetricConsts.USER_ACTION_SORT_DATE;
+//                    break;
+//                case SortModel.SORT_DIMENSION_ID_FILE_TYPE:
+//                    sortType = MetricConsts.USER_ACTION_SORT_TYPE;
+//                    break;
+//            }
 
             Metrics.logUserAction(sortType);
             if (injector.pickResult != null) {
