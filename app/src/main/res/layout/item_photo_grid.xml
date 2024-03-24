@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.android.documentsui.GridItemThumbnail
+            <com.blabla.documentsui.GridItemThumbnail
                 android:id="@+id/icon_thumb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                 android:tint="?attr/gridItemTint"
                 android:tintMode="src_over"/>
 
-            <com.android.documentsui.GridItemThumbnail
+            <com.blabla.documentsui.GridItemThumbnail
                 android:id="@+id/icon_mime_lg"
                 android:layout_width="@dimen/icon_size"
                 android:layout_height="@dimen/icon_size"

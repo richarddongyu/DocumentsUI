@@ -44,7 +44,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="?android:attr/actionBarSize"/>
 
-                <com.android.documentsui.inspector.HeaderView
+                <com.blabla.documentsui.inspector.HeaderView
                     android:id="@+id/inspector_header_view"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/inspector_header_height"
@@ -79,33 +79,33 @@
             android:background="@drawable/bottom_sheet_dialog_background"
             android:paddingBottom="5dp">
 
-            <com.android.documentsui.inspector.DetailsView
+            <com.blabla.documentsui.inspector.DetailsView
                 android:id="@+id/inspector_details_view"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <com.android.documentsui.inspector.MediaView
+            <com.blabla.documentsui.inspector.MediaView
                 android:id="@+id/inspector_media_view"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <com.android.documentsui.inspector.actions.ActionView
+            <com.blabla.documentsui.inspector.actions.ActionView
                 android:id="@+id/inspector_show_in_provider_view"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="gone"/>
 
-            <com.android.documentsui.inspector.actions.ActionView
+            <com.blabla.documentsui.inspector.actions.ActionView
                 android:id="@+id/inspector_app_defaults_view"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="gone"/>
 
-            <com.android.documentsui.inspector.DebugView
+            <com.blabla.documentsui.inspector.DebugView
                 android:id="@+id/inspector_debug_view"
                 android:orientation="vertical"
                 android:layout_width="match_parent"

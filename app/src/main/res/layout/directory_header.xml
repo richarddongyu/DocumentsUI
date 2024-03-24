@@ -20,7 +20,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <com.android.documentsui.HorizontalBreadcrumb
+    <com.blabla.documentsui.HorizontalBreadcrumb
         android:id="@+id/horizontal_breadcrumb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

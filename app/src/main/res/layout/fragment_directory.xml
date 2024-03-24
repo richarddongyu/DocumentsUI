@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 
-<com.android.documentsui.dirlist.AnimationView
+<com.blabla.documentsui.dirlist.AnimationView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -32,7 +32,7 @@
         style="@style/TrimmedHorizontalProgressBar"
         android:visibility="gone"/>
 
-    <com.android.documentsui.dirlist.DocumentsSwipeRefreshLayout
+    <com.blabla.documentsui.dirlist.DocumentsSwipeRefreshLayout
         android:id="@+id/refresh_layout"
         android:background="@android:color/transparent"
         android:layout_width="match_parent"
@@ -51,6 +51,6 @@
             android:drawSelectorOnTop="true"
             app:fastScrollEnabled="false"/>
 
-    </com.android.documentsui.dirlist.DocumentsSwipeRefreshLayout>
+    </com.blabla.documentsui.dirlist.DocumentsSwipeRefreshLayout>
 
-</com.android.documentsui.dirlist.AnimationView>
+</com.blabla.documentsui.dirlist.AnimationView>

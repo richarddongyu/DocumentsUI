@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.android.documentsui"
+    namespace = "com.blabla.documentsui"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.android.documentsui"
+        applicationId = "com.blabla.documentsui"
         minSdk = 29
         targetSdk = 34
         versionCode = 100
