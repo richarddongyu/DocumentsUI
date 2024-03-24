@@ -38,7 +38,7 @@ public class PickCountRecordProvider extends ContentProvider {
 
     private static final String TABLE_PICK_COUNT_RECORD = "pickCountRecordTable";
 
-    static final String AUTHORITY = "com.android.documentsui.pickCountRecord";
+    static final String AUTHORITY = "com.blabla.documentsui.pickCountRecord";
 
     static {
         MATCHER.addURI(AUTHORITY, "pickCountRecord/*", URI_PICK_RECORD);

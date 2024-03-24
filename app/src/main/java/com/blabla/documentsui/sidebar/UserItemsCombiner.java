@@ -31,7 +31,6 @@ import androidx.annotation.VisibleForTesting;
 import com.blabla.documentsui.R;
 import com.blabla.documentsui.base.State;
 import com.blabla.documentsui.base.UserId;
-//import com.android.modules.utils.build.SdkLevel;
 
 import java.util.ArrayList;
 import java.util.List;

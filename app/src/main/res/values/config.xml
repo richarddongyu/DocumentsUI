@@ -32,10 +32,10 @@
     <!-- Indicates if showing hidden files by default -->
     <bool name="show_hidden_files_by_default">false</bool>
 
-    <string name="default_root_uri" translatable="false">content://com.android.providers.downloads.documents/root/downloads</string>
+    <string name="default_root_uri" translatable="false">content://com.blabla.providers.downloads.documents/root/downloads</string>
     <!-- The value is used in sorting process on Drawer menu. If the root's package name
      start with it, the item will have higher order than others.-->
-    <string name="preferred_root_package" translatable="false">com.android.shell</string>
+    <string name="preferred_root_package" translatable="false">com.blabla.shell</string>
 
     <string name="datetime_format_12" translatable="false">MMM dd, yyyy, h:mm a</string>
     <string name="datetime_format_24" translatable="false">MMM dd, yyyy, H:mm</string>
@@ -71,7 +71,7 @@
     Android Go device will have Files Go app for file management. -->
     <bool name="is_launcher_enabled">true</bool>
 
-    <string name="scrolling_behavior" translatable="false">com.android.documentsui.ui.SearchBarScrollingViewBehavior</string>
+    <string name="scrolling_behavior" translatable="false">com.blabla.documentsui.ui.SearchBarScrollingViewBehavior</string>
 
     <!-- The maximum record of search history. -->
     <integer name="config_maximum_search_history">200</integer>

@@ -38,7 +38,6 @@ import com.blabla.documentsui.IconUtils;
 import com.blabla.documentsui.R;
 import com.blabla.documentsui.base.State;
 import com.blabla.documentsui.ui.Views;
-//import com.android.modules.utils.build.SdkLevel;
 
 final class GridDirectoryHolder extends DocumentHolder {
 

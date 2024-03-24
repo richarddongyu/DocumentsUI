@@ -54,19 +54,19 @@ public class FileOperationService extends Service implements Job.Listener {
     public static final String TAG = "FileOperationService";
 
     // Extra used for OperationDialogFragment, Notifications and picking copy destination.
-    public static final String EXTRA_OPERATION_TYPE = "com.android.documentsui.OPERATION_TYPE";
+    public static final String EXTRA_OPERATION_TYPE = "com.blabla.documentsui.OPERATION_TYPE";
 
     // Extras used for OperationDialogFragment...
-    public static final String EXTRA_DIALOG_TYPE = "com.android.documentsui.DIALOG_TYPE";
-    public static final String EXTRA_SRC_LIST = "com.android.documentsui.SRC_LIST";
+    public static final String EXTRA_DIALOG_TYPE = "com.blabla.documentsui.DIALOG_TYPE";
+    public static final String EXTRA_SRC_LIST = "com.blabla.documentsui.SRC_LIST";
 
-    public static final String EXTRA_FAILED_URIS = "com.android.documentsui.FAILED_URIS";
-    public static final String EXTRA_FAILED_DOCS = "com.android.documentsui.FAILED_DOCS";
+    public static final String EXTRA_FAILED_URIS = "com.blabla.documentsui.FAILED_URIS";
+    public static final String EXTRA_FAILED_DOCS = "com.blabla.documentsui.FAILED_DOCS";
 
     // Extras used to start or cancel a file operation...
-    public static final String EXTRA_JOB_ID = "com.android.documentsui.JOB_ID";
-    public static final String EXTRA_OPERATION = "com.android.documentsui.OPERATION";
-    public static final String EXTRA_CANCEL = "com.android.documentsui.CANCEL";
+    public static final String EXTRA_JOB_ID = "com.blabla.documentsui.JOB_ID";
+    public static final String EXTRA_OPERATION = "com.blabla.documentsui.OPERATION";
+    public static final String EXTRA_CANCEL = "com.blabla.documentsui.CANCEL";
 
     @IntDef({
             OPERATION_UNKNOWN,

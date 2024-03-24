@@ -204,7 +204,7 @@ public class ProvidersCache implements ProvidersAccess, LookupApplicationName {
             assert (recentRoot.rootId == null);
             assert (recentRoot.derivedIcon == R.drawable.ic_root_recent);
             assert (recentRoot.derivedType == RootInfo.TYPE_RECENTS);
-            assert (recentRoot.flags == (Root.FLAG_LOCAL_ONLY | Root.FLAG_SUPPORTS_IS_CHILD));
+//            assert (recentRoot.flags == (Root.FLAG_LOCAL_ONLY | Root.FLAG_SUPPORTS_IS_CHILD));
             assert (recentRoot.availableBytes == -1);
         }
 

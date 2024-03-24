@@ -16,8 +16,6 @@
 
 package com.blabla.documentsui.util;
 
-//import com.android.modules.utils.build.SdkLevel;
-
 import android.os.Build;
 
 /**

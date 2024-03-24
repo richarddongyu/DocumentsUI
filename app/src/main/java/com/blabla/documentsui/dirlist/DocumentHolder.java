@@ -40,7 +40,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.blabla.documentsui.R;
 import com.blabla.documentsui.base.Shared;
 import com.blabla.documentsui.base.State;
-//import com.android.modules.utils.build.SdkLevel;
 
 import java.util.function.Function;
 

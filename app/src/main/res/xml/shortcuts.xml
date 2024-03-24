@@ -22,6 +22,6 @@
         android:shortcutShortLabel="@string/images_shortcut_label" >
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="content://com.android.providers.media.documents/root/images_root" />
+            android:data="content://com.blabla.providers.media.documents/root/images_root" />
     </shortcut>
 </shortcuts>

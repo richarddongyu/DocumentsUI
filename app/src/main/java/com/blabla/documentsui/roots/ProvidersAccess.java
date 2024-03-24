@@ -38,7 +38,7 @@ import java.util.List;
  */
 public interface ProvidersAccess {
 
-    String BROADCAST_ACTION = "com.android.documentsui.action.ROOT_CHANGED";
+    String BROADCAST_ACTION = "com.blabla.documentsui.action.ROOT_CHANGED";
 
     /**
      * Return the requested {@link RootInfo}, but only loading the roots for the
